@@ -31,7 +31,6 @@ class TicTacToe
   end
 
   def move(player)
-    puts @count
     available_cells
     coordinates = gets.chomp
     if @available.none?(coordinates)
@@ -59,7 +58,7 @@ class TicTacToe
   end
 
   def draw
-    if @count <= 3
+    if @count == 3
       puts "Its a draw move"
       return true
     end
@@ -114,10 +113,12 @@ while game_on
 
   if a.winner(player1)
     game_on = false
+    break
   end
 
   if a.draw
     game_on = false
+    break
   end
 
   puts "#{name2} turn:"
@@ -126,9 +127,11 @@ while game_on
 
   if a.winner(player2)
     game_on = false
+    break
   end
 
   if a.draw
     game_on = false
+    break
   end
 end
