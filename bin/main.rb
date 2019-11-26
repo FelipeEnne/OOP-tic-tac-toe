@@ -11,6 +11,10 @@ class TicTacToe
     @available
   end
 
+  def get_turn
+    return @turn
+  end
+
   def put_table
     @table.each do |x|
       x.each do |y|
@@ -104,34 +108,22 @@ player1 = 1
 puts "Player2 name:"
 name2 = gets.chomp
 player2 = 2
-
+turn = 1
 
 while game_on
-  puts "#{name1} turn:"
-  a.move(player1)
-  a.put_table
-
-  if a.winner(player1)
-    game_on = false
-    break
+  if turn == 1
+    puts "#{name1} turn:"
+    a.move(player1)
+    a.put_table
+    turn = 2
+  else
+    puts "#{name2} turn:"
+    a.move(player2)
+    a.put_table
+    turn = 1
   end
 
-  if a.draw
+  if a.winner(player1) || a.winner(player2) || a.draw
     game_on = false
-    break
-  end
-
-  puts "#{name2} turn:"
-  a.move(player2)
-  a.put_table
-
-  if a.winner(player2)
-    game_on = false
-    break
-  end
-
-  if a.draw
-    game_on = false
-    break
   end
 end
