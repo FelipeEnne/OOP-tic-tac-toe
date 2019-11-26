@@ -8,6 +8,7 @@ class TicTacToe
   def initialize
     @table = [[0,0,0],[0,0,0],[0,0,0]]
     @count = 0
+    @available
   end
 
   def put_table
@@ -30,8 +31,14 @@ class TicTacToe
   end
 
   def move(player)
-    puts "#{player} coordinates:"
+    puts @count
+    available_cells
     coordinates = gets.chomp
+    if @available.none?(coordinates)
+      puts "Move is wrong"
+      move(player)
+    end
+    @count += 1
   end
 
   def error_message
@@ -48,12 +55,35 @@ class TicTacToe
   end
   
   def winner(player)
-    puts "The winner is:"
-    @count += 1
-    if @count == 9
+    #if win conditions are true? return true
+  end
+
+  def draw
+    if @count <= 3
+      puts "Its a draw move"
       return true
     end
     false
+  end
+
+  def available_cells
+    i=0
+    j=0
+    @available = []
+    puts "Pick a location from: "
+    @table.each do |x|
+      x.each do |y|
+        if y == 0
+          print " [ #{j}#{i} ] "
+          a = j.to_s + i.to_s
+          @available.push(a)
+        end
+        i += 1
+      end
+      i = 0
+      j += 1
+    end
+    puts " "
   end
 
   def no_cells
@@ -78,23 +108,27 @@ player2 = 2
 
 
 while game_on
-
   puts "#{name1} turn:"
   a.move(player1)
+  a.put_table
 
   if a.winner(player1)
     game_on = false
   end
 
-  a.put_table
+  if a.draw
+    game_on = false
+  end
 
   puts "#{name2} turn:"
   a.move(player2)
-
   a.put_table
 
   if a.winner(player2)
     game_on = false
   end
 
+  if a.draw
+    game_on = false
+  end
 end
