@@ -5,7 +5,9 @@
 # rubocop: disable Metrics/MethodLength
 
 class TicTacToe
-  @table = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+  def initialize
+    @table = [[0,0,0],[0,0,0],[0,0,0]]
+  end
 
   def put_table
     @table.each do |x|
@@ -49,3 +51,7 @@ class TicTacToe
 end
 
 # rubocop: enable Metrics/MethodLength
+
+a = TicTacToe.new
+a.put_table
+a.opening
