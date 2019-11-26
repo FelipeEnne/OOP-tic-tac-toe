@@ -7,6 +7,7 @@
 class TicTacToe
   def initialize
     @table = [[0,0,0],[0,0,0],[0,0,0]]
+    @count = 0
   end
 
   def put_table
@@ -41,8 +42,18 @@ class TicTacToe
     puts 'Error: coordinates are not between 1-3'
   end
 
-  def winner(player)
+  def winner_msg(player)
     print "Player#{player} Wins !"
+    true
+  end
+  
+  def winner(player)
+    puts "The winner is:"
+    @count += 1
+    if @count == 9
+      return true
+    end
+    false
   end
 
   def no_cells
@@ -55,3 +66,35 @@ end
 a = TicTacToe.new
 a.put_table
 a.opening
+
+game_on = true
+
+puts "Player1 name:"
+name1 = gets.chomp
+player1 = 1
+puts "Player2 name:"
+name2 = gets.chomp
+player2 = 2
+
+
+while game_on
+
+  puts "#{name1} turn:"
+  a.move(player1)
+
+  if a.winner(player1)
+    game_on = false
+  end
+
+  a.put_table
+
+  puts "#{name2} turn:"
+  a.move(player2)
+
+  a.put_table
+
+  if a.winner(player2)
+    game_on = false
+  end
+
+end
