@@ -40,8 +40,26 @@ class TicTacToe
     if @available.none?(coordinates)
       puts "Move is wrong"
       move(player)
+    else
+      setmove(coordinates, player)
+      @count += 1
     end
-    @count += 1
+  end
+
+  def setmove(coordinates, player)
+    coorx = coordinates[0].to_i
+    coory = coordinates[1].to_i
+
+    if coorx < 3 && coorx >= 0 && coory < 3 && coory >= 0
+      if @table[coorx][coory] != 0
+        error_message
+        move(player)
+      else
+        @table[coorx][coory] = player
+      end
+    elsif
+      error_coordinates
+    end
   end
 
   def error_message
