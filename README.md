@@ -37,7 +37,7 @@
   Coordinates are x and y values on the game board. Starts with 00(x:0 y:0) and goes until 22(x:2 y:2) <br> Example: 00
 3. And you play until someone win or draw(Screenshot of a win case is below)
 
-    <div align="center"><img src="img/terminal-gameplay.png"></div>
+    <div align="center"><img src="img/terminal-win.png"></div>
 
 4. You can also restart the game by input "y" to terminal command which comes right after the game ends.
 
