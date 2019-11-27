@@ -30,10 +30,16 @@
 
 ### How to play
 
-1. You need to put the name of the players
-2. The game will show the possibilities end you have to put the coordenates. Exemple: 00
-3. End you play intil someone win or daw
+<div align="center"><img src="img/terminal-gameplay.png"></div>
 
+1. You need to put the name of the players
+2. The game will show the possibilities and you have to put the coordinates. 
+  Coordinates are x and y values on the game board. Starts with 00(x:0 y:0) and goes until 22(x:2 y:2) <br> Example: 00
+3. And you play until someone win or draw(Screenshot of a win case is below)
+
+    <div align="center"><img src="img/terminal-gameplay.png"></div>
+
+4. You can also restart the game by input "y" to terminal command which comes right after the game ends.
 
 <!-- GETTING STARTED -->
 ## Getting Started
