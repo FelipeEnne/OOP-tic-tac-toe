@@ -99,7 +99,7 @@ RSpec.describe TicTacToe do
 
     it 'draw' do
       a.setting_table([[1, 1, 2], [2, 2, 1], [1, 2, 0]])
-      $coordinates = '22'
+      a.setcrdnts('22')
       a.move(1)
       a.setting_count(9)
       expect(a.draw).to eql(true)
