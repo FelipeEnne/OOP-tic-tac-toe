@@ -10,28 +10,27 @@
 
 class Messages
   def opening
-    puts 'Game has started now! Player 1 turn ..'
+    'Game has started now! Player 1 turn ..'
   end
 
   def move_is_wrong
-    # puts "Move is wrong"
+    'Move is wrong'
   end
 
   def error_message
-    puts 'Error: coordinates are occupied'
+    'Error: coordinates are occupied'
   end
 
   def error_coordinates
-    puts 'Error: coordinates are not between 1-3'
+    'Error: coordinates are not between 1-3'
   end
 
-  def winner_msg(_name)
-    # print "Player #{name} Wins !"
-    true
+  def winner_msg(name)
+    "Player #{name} Wins !"
   end
 
   def no_cells
-    # puts 'No more cells !'
+    'No more cells !'
   end
 end
 
@@ -41,6 +40,15 @@ class TicTacToe < Messages
     @table = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     @count = 0
     @available = 0
+    @crdnts = ''
+  end
+
+  def getcrdnts
+    @crdnts
+  end
+
+  def setcrdnts(crd)
+    @crdnts = crd
   end
 
   def return_table
@@ -74,7 +82,7 @@ class TicTacToe < Messages
 
   def move(player)
     available_cells
-    coordinates = $coordinates
+    coordinates = @crdnts
     if @available.none?(coordinates)
       move_is_wrong
       # move(player)
@@ -90,13 +98,13 @@ class TicTacToe < Messages
 
     if coorx < 3 && coorx >= 0 && coory < 3 && coory >= 0
       if @table[coorx][coory] != 0
-        error_message
+        puts error_message
         # move(player)
       else
         @table[coorx][coory] = player
       end
     else
-      error_coordinates
+      puts error_coordinates
     end
   end
 
@@ -131,9 +139,10 @@ class TicTacToe < Messages
 
   def draw
     if @count == 9
-      no_cells
+      # puts no_cells
       return true
     end
+
     false
   end
 
