@@ -6,8 +6,6 @@
 
 # rubocop: disable Metrics/PerceivedComplexity
 
-# rubocop: disable Style/GlobalVars
-
 class Messages
   def opening
     'Game has started now! Player 1 turn ..'
@@ -170,5 +168,3 @@ end
 # rubocop: enable Metrics/CyclomaticComplexity
 
 # rubocop: enable Metrics/PerceivedComplexity
-
-# rubocop: enable Style/GlobalVars

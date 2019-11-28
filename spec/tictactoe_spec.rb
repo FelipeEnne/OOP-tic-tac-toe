@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop: disable Style/GlobalVars
-
 require_relative '../lib/main_test'
 
 RSpec.describe TicTacToe do
@@ -165,5 +163,3 @@ RSpec.describe TicTacToe do
     end
   end
 end
-
-# rubocop: enable Style/GlobalVars
