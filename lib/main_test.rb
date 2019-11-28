@@ -29,9 +29,13 @@ end
 
 class TicTacToe < Messages
   def initialize
-    @table = [[0,0,0],[0,0,0],[0,0,0]]
+    @table = [[1,1,2],[2,2,1],[0,0,1]]
     @count = 0
     @available
+  end
+
+  def return_table
+    @table
   end
 
   def put_table
@@ -51,10 +55,10 @@ class TicTacToe < Messages
 
   def move(player)
     available_cells
-    coordinates = gets.chomp
+    coordinates = $coordinates
     if @available.none?(coordinates)
       puts "Move is wrong"
-      move(player)
+      #move(player)
     else
       setmove(coordinates, player)
       @count += 1
@@ -68,7 +72,7 @@ class TicTacToe < Messages
     if coorx < 3 && coorx >= 0 && coory < 3 && coory >= 0
       if @table[coorx][coory] != 0
         error_message
-        move(player)
+        #move(player)
       else
         @table[coorx][coory] = player
       end
@@ -137,43 +141,4 @@ end
 
 # rubocop: enable Metrics/MethodLength
 
-a = TicTacToe.new
-a.put_table
-a.opening
-
-game_on = true
-
-puts "Player1 name:"
-name1 = 'ilhan'
-player1 = 1
-puts "Player2 name:"
-name2 = 'felipe'
-player2 = 2
-turn = 1
-
-while game_on
-  if turn == 1
-    puts "#{name1} turn:"
-    a.move(player1)
-    a.put_table
-    turn = 2
-  else
-    puts "#{name2} turn:"
-    a.move(player2)
-    a.put_table
-    turn = 1
-  end
-
-  if a.winner(name1) || a.winner(name2) || a.draw
-    game_on = false
-    puts " Want to play another game ? y/n"
-    r = gets.chomp
-    if r == 'y'
-      game_on = true
-      a = TicTacToe.new
-      a.put_table
-      a.opening
-      turn = 1
-    end
-  end
-end
+$coordinates
