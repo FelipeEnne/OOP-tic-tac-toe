@@ -59,14 +59,14 @@ class TicTacToe < Messages
     @table.each do |x|
       x.each do |y|
         if y == 1
-          print ' O '
+          #print ' O '
         elsif y == 2
-          print ' X '
+          #print ' X '
         else
-          print ' _ '
+          #print ' _ '
         end
       end
-      puts ' '
+      #puts ' '
     end
   end
 
