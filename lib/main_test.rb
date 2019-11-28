@@ -10,7 +10,7 @@ class Messages
   end
 
   def move_is_wrong
-    puts "Move is wrong"
+    # puts "Move is wrong"
   end
 
   def error_message
@@ -22,19 +22,19 @@ class Messages
   end
 
   def winner_msg(name)
-    print "Player #{name} Wins !"
+    # print "Player #{name} Wins !"
     true
   end
 
   def no_cells
-    puts 'No more cells !'
+    # puts 'No more cells !'
   end
 end
 
 class TicTacToe < Messages
   def initialize
-    #@table = [[1,1,2],[2,2,1],[0,0,1]]
-    @table = [[0,0,0],[0,0,0],[0,0,0]]
+    # @table = [[1,1,2],[2,2,1],[0,0,1]]
+    @table = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     @count = 0
     @available
   end
@@ -70,13 +70,12 @@ class TicTacToe < Messages
     @table = arr
   end
 
-
   def move(player)
     available_cells
     coordinates = $coordinates
     if @available.none?(coordinates)
       move_is_wrong
-      #move(player)
+      # move(player)
     else
       setmove(coordinates, player)
       @count += 1
@@ -90,7 +89,7 @@ class TicTacToe < Messages
     if coorx < 3 && coorx >= 0 && coory < 3 && coory >= 0
       if @table[coorx][coory] != 0
         error_message
-        #move(player)
+        # move(player)
       else
         @table[coorx][coory] = player
       end
@@ -100,7 +99,7 @@ class TicTacToe < Messages
   end
 
   def winner(name)
-    arr = [0,1,2]
+    arr = [0, 1, 2]
 
     arr.each do |x|
       if @table[x][0] == @table[x][1] && @table[x][1] == @table[x][2] && @table[x][0] != 0
@@ -137,14 +136,14 @@ class TicTacToe < Messages
   end
 
   def available_cells
-    i=0
-    j=0
+    i = 0
+    j = 0
     @available = []
-    puts "Pick a location from: "
+    # puts "Pick a location from: "
     @table.each do |x|
       x.each do |y|
         if y == 0
-          print " [ #{j}#{i} ] "
+          # print " [ #{j}#{i} ] "
           a = j.to_s + i.to_s
           @available.push(a)
         end
@@ -153,10 +152,8 @@ class TicTacToe < Messages
       i = 0
       j += 1
     end
-    puts " "
+    # puts " "
   end
 end
 
 # rubocop: enable Metrics/MethodLength
-
-$coordinates
