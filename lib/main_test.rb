@@ -9,6 +9,10 @@ class Messages
     puts 'Game has started now! Player 1 turn ..'
   end
 
+  def move_is_wrong
+    puts "Move is wrong"
+  end
+
   def error_message
     puts 'Error: coordinates are occupied'
   end
@@ -29,13 +33,22 @@ end
 
 class TicTacToe < Messages
   def initialize
-    @table = [[1,1,2],[2,2,1],[0,0,1]]
+    #@table = [[1,1,2],[2,2,1],[0,0,1]]
+    @table = [[0,0,0],[0,0,0],[0,0,0]]
     @count = 0
     @available
   end
 
   def return_table
     @table
+  end
+
+  def return_count
+    @count
+  end
+
+  def set_count(x)
+    @count = x
   end
 
   def put_table
@@ -53,11 +66,16 @@ class TicTacToe < Messages
     end
   end
 
+  def set_table(arr)
+    @table = arr
+  end
+
+
   def move(player)
     available_cells
     coordinates = $coordinates
     if @available.none?(coordinates)
-      puts "Move is wrong"
+      move_is_wrong
       #move(player)
     else
       setmove(coordinates, player)
@@ -112,7 +130,7 @@ class TicTacToe < Messages
 
   def draw
     if @count == 9
-      puts "Its a draw move"
+      no_cells
       return true
     end
     false
