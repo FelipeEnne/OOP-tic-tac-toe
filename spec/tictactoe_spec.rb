@@ -1,13 +1,11 @@
+# frozen_string_literal: true
+
 require_relative '../lib/main_test'
 
 $coordinates
 a = TicTacToe.new
-game_on = true
 name1 = 'ilhan'
-player1 = 1
 name2 = 'felipe'
-player2 = 2
-turn = 1
 
 RSpec.describe TicTacToe do
   describe "#initialize" do
@@ -26,7 +24,7 @@ RSpec.describe TicTacToe do
   describe "#winner" do
     let(:arrs) { %w[00 01 02] }
     it "winner" do
-      a.set_table([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+      a.setting_table([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
       i = 0
       while i < arrs.length
         $coordinates = arrs[i]
@@ -39,10 +37,10 @@ RSpec.describe TicTacToe do
 
   describe "#draw" do
     it "draw" do
-      a.set_table([[1, 1, 2], [2, 2, 1], [1, 2, 0]])
+      a.setting_table([[1, 1, 2], [2, 2, 1], [1, 2, 0]])
       $coordinates = "22"
       a.move(1)
-      a.set_count(9)
+      a.setting_count(9)
       expect(a.draw).to eql(true)
     end
   end

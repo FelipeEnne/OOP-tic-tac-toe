@@ -4,6 +4,10 @@
 
 # rubocop: disable Metrics/MethodLength
 
+# rubocop: disable Metrics/CyclomaticComplexity
+
+# rubocop: disable Metrics/PerceivedComplexity
+
 class Messages
   def opening
     puts 'Game has started now! Player 1 turn ..'
@@ -21,7 +25,7 @@ class Messages
     puts 'Error: coordinates are not between 1-3'
   end
 
-  def winner_msg(name)
+  def winner_msg(_name )
     # print "Player #{name} Wins !"
     true
   end
@@ -36,7 +40,7 @@ class TicTacToe < Messages
     # @table = [[1,1,2],[2,2,1],[0,0,1]]
     @table = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     @count = 0
-    @available
+    @available = 0
   end
 
   def return_table
@@ -47,8 +51,8 @@ class TicTacToe < Messages
     @count
   end
 
-  def set_count(x)
-    @count = x
+  def setting_count(count)
+    @count = count
   end
 
   def put_table
@@ -66,7 +70,7 @@ class TicTacToe < Messages
     end
   end
 
-  def set_table(arr)
+  def setting_table(arr)
     @table = arr
   end
 
@@ -93,7 +97,7 @@ class TicTacToe < Messages
       else
         @table[coorx][coory] = player
       end
-    elsif
+    else
     error_coordinates
     end
   end
@@ -142,7 +146,7 @@ class TicTacToe < Messages
     # puts "Pick a location from: "
     @table.each do |x|
       x.each do |y|
-        if y == 0
+        if y.zero?
           # print " [ #{j}#{i} ] "
           a = j.to_s + i.to_s
           @available.push(a)
@@ -157,3 +161,7 @@ class TicTacToe < Messages
 end
 
 # rubocop: enable Metrics/MethodLength
+
+# rubocop: enable Metrics/CyclomaticComplexity
+
+# rubocop: enable Metrics/PerceivedComplexity
