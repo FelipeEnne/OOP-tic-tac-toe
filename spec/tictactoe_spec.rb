@@ -40,31 +40,31 @@ RSpec.describe TicTacToe do
 
   describe '#move' do
     it 'should call setmove' do
-     a.setting_table([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
-     $coordinates = '22'
-     expect(a.move(1)).to eql(a.return_count)
-   end
+      a.setting_table([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+      $coordinates = '22'
+      expect(a.move(1)).to eql(a.return_count)
+    end
 
     it 'is wrong move' do
       $coordinates = '45'
       a.move(1)
       expect(a.move(1)).to eql(a.move_is_wrong)
-      end
+    end
   end
 
   describe '#setmove' do
-   it 'should set the move on the table' do
-       a.setting_table([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
-       a.setmove('00', 2)
-       expect(a.return_table).to eql([[2, 0, 0], [0, 0, 0], [0, 0, 0]])
-       p
-     end
- end
+    it 'should set the move on the table' do
+      a.setting_table([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+      a.setmove('00', 2)
+      expect(a.return_table).to eql([[2, 0, 0], [0, 0, 0], [0, 0, 0]])
+      p
+    end
+  end
 
   it 'assigns name to a player' do
-      expect(name1).to eql('ilhan')
-      expect(name2).to eql('felipe')
-    end
+    expect(name1).to eql('ilhan')
+    expect(name2).to eql('felipe')
+  end
 
   describe '#winner' do
     let(:arrs) { %w[00 01 02] }
