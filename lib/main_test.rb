@@ -2,11 +2,11 @@
 
 # frozen_string_literal: true
 
-# rubocop: disable Metrics/MethodLength
-
 # rubocop: disable Metrics/CyclomaticComplexity
 
 # rubocop: disable Metrics/PerceivedComplexity
+
+# rubocop: disable Style/GlobalVars
 
 class Messages
   def opening
@@ -25,7 +25,7 @@ class Messages
     puts 'Error: coordinates are not between 1-3'
   end
 
-  def winner_msg(_name )
+  def winner_msg(_name)
     # print "Player #{name} Wins !"
     true
   end
@@ -98,7 +98,7 @@ class TicTacToe < Messages
         @table[coorx][coory] = player
       end
     else
-    error_coordinates
+      error_coordinates
     end
   end
 
@@ -160,8 +160,8 @@ class TicTacToe < Messages
   end
 end
 
-# rubocop: enable Metrics/MethodLength
-
 # rubocop: enable Metrics/CyclomaticComplexity
 
 # rubocop: enable Metrics/PerceivedComplexity
+
+# rubocop: enable Style/GlobalVars
